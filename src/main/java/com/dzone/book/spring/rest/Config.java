@@ -1,8 +1,23 @@
 package com.dzone.book.spring.rest;
 
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan("com.dzone.book.spring.rest")
-public class Config {}
+public class Config {
+
+    @Bean
+    public Car car(Engine engine) {
+        return new Car(engine);
+    }
+    
+    @Bean
+    public CombustionEngine combustionEngine(Starter starter) {
+        return new CombustionEngine(starter);
+    }
+    
+    @Bean
+    public ElectricStarter electricStarter() {
+        return new ElectricStarter();
+    }
+}
