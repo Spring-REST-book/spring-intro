@@ -6,11 +6,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan("com.dzone.book.spring.rest")
+@ComponentScan
 public class Application {
 
     public static void main(String[] args) {
-
+        
         try (ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(Application.class)) {
             Car car = context.getBean(Car.class);
             car.start();
